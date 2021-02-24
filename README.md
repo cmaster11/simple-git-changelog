@@ -56,6 +56,39 @@ So for example, you could add to your project's NPM scripts:
 },
 ...
 ```
+
+### One-liners
+
+You can also use these one-liners:
+
+```bash
+curl -s "https://raw.githubusercontent.com/ianhenderson/simple-git-changelog/master/changelog.awk" | awk -f -
+
+wget -O - "https://raw.githubusercontent.com/ianhenderson/simple-git-changelog/master/changelog.awk" | awk -f -
+```
+
+### Docker
+
+You can also run the script in any folder containing the `.git` one, by using Docker.
+
+Build the docker image with:
+
+```bash
+docker build --tag IMAGE_TAG .
+```
+
+Use with:
+
+```
+# Ref for the local directory: https://stackoverflow.com/a/41489151
+
+# Windows CMD
+docker run --rm -it -v %cd%:/root IMAGE_TAG
+
+# PowerShell/linux
+docker run --rm -it -v ${PWD}:/root IMAGE_TAG
+```
+
 ## Notes
 
 #### Tags
